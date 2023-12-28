@@ -24,7 +24,9 @@ const Navbar = () => {
 
     const onSearch = (e) => {
         if (e.key === "Enter") {
+            
             handleSearch()
+            window.scrollTo(0, 0);
             navigate(`/search/${input}`)
             setInput("");
         }

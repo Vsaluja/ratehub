@@ -23,6 +23,7 @@ const HeroBanner = () => {
 
     const onSearch = (e) => {
         if (e.key === "Enter") {
+            window.scrollTo(0, 0);
             navigate(`/search/${input}`);
             setInput("");
         }
