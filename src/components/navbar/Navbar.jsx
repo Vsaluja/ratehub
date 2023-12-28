@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './style.scss'
 import Container from '../Container/Container'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import logo from '../../assets/moviesLogo2.png'
 
 
@@ -11,6 +11,8 @@ const Navbar = () => {
     const [search, setSearch] = useState(false);
     const [input, setInput] = useState("");
     const navigate = useNavigate();
+
+    const location = useLocation();
 
     const handleMobile = () => {
         setMobile((prev) => !prev)
@@ -32,6 +34,17 @@ const Navbar = () => {
         }
     }
 
+
+    useEffect(()=>{
+        if(search){
+            setSearch(false);
+        }
+
+        if(mobile){
+            setMobile(false);
+        }
+
+    }, [location])
 
 
 
