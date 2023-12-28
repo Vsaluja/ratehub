@@ -41,7 +41,7 @@
         width: 100%;
         background: linear-gradient(180deg, rgba(4,21,45,0) 0%, #04152d 79.17%);
         position: absolute;
-        bottom: 390px;
+        bottom: 250px;
         left: 0;
 
         @include md{
@@ -59,6 +59,7 @@
         max-width: 700px;
         margin: 0 auto;
         gap: 10px;
+        
 
         h3{
             font-weight: bold;
@@ -70,17 +71,24 @@
         .search{
             width: 100%;
             display: flex;
+            max-width: 70%;
+
+            @include md{
+                max-width: 100%;
+            }
+
             input{
                 width: 100%;
                 max-width: 680px;
-                font-size: 18px;
+                font-size: 14px;
                 border: none;
                 outline: none;
-                padding: 10px;
+                padding: 5px;
                 border-radius: 50px 0px 0px 50px;
-                font-weight: bold;    
+                font-weight: 300;  
                 @include md{
-                    padding: 15px;
+                    padding: 10px;
+                    font-size: 20px;
                 }
             }
             button{
@@ -88,15 +96,16 @@
                 outline: none;
                 padding: 10px;
                 width: 100%;
-                max-width: 100px;
-                font-size: 20px;
+                max-width: 70px;
+                font-size: 14px;
                 padding: 10px;
                 background: var(--gradient);
                 color: white;
                 border-radius: 0px 50px 50px 0px;
-                font-weight: bold;
+                font-weight: 300;
                 @include md{
-                    max-width: 120px;
+                    font-size: 20px;
+                    max-width: 100px;
                 }
             }
         }
