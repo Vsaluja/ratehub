@@ -12,16 +12,14 @@
 
     .backdrop{
         width: 100%;
-        height: 60%;
+        height: 100%;
         position: absolute;
         top: 0;
         left: 0;
         opacity: 0.5;
         z-index: -1;
         overflow: hidden;
-        @include md{
-            height: 100%; 
-        }
+
         
         .lazy-load-image-background{
             height: 100%;
@@ -37,16 +35,13 @@
 
     .opacity-layer{
         z-index: -1;
-        height: 330px;
+        height: 220px;
         width: 100%;
         background: linear-gradient(180deg, rgba(4,21,45,0) 0%, #04152d 79.17%);
         position: absolute;
-        bottom: 250px;
+        bottom: 0px;
         left: 0;
 
-        @include md{
-            bottom: 0;
-        }
     }
 
     .heroContent{
