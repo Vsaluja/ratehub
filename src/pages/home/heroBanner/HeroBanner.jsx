@@ -15,9 +15,9 @@ const HeroBanner = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        const random = Math.floor(Math.random() * 20);
+        // const random = Math.floor(Math.random() * 20);
         // If react.strictmode in main.jsx is not enabled the proper bg url might not work because url.backdrop will show up as undefined
-        const path = url.backdrop + data?.results[random]?.backdrop_path;
+        const path = url.backdrop + data?.results[8]?.backdrop_path;
         setBg(path);
     }, [data])
 
