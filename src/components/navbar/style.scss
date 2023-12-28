@@ -90,10 +90,20 @@
 
         .nav-phone{
             display: flex;
-            gap: 1rem;
+            gap: 2rem;
             @include md{
                 display: none;
             }
+
+            .phnSearch{
+                font-size: 22px;
+            }
+            .phnMenu{
+                font-size: 22px;
+            }
+
+
+
         }
 
     }

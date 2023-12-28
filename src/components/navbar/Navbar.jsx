@@ -26,7 +26,7 @@ const Navbar = () => {
 
     const onSearch = (e) => {
         if (e.key === "Enter") {
-            
+
             handleSearch()
             window.scrollTo(0, 0);
             navigate(`/search/${input}`)
@@ -35,15 +35,15 @@ const Navbar = () => {
     }
 
 
-    useEffect(()=>{
-        if(search){
+    useEffect(() => {
+        if (search) {
             setSearch(false);
         }
 
-        if(mobile){
+        if (mobile) {
             setMobile(false);
         }
-
+        window.scrollTo(0, 0);
     }, [location])
 
 
@@ -64,8 +64,8 @@ const Navbar = () => {
 
                 <div className="nav-phone">
 
-                    <i className="ri-search-line" onClick={handleSearch} />
-                    <i className="ri-menu-3-line" onClick={handleMobile} />
+                    <i className="phnSearch ri-search-line" onClick={handleSearch} />
+                    <i className="phnMenu ri-menu-3-line" onClick={handleMobile} />
 
                 </div>
 

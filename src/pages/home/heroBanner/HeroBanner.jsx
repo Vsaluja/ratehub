@@ -15,9 +15,9 @@ const HeroBanner = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        // const random = Math.floor(Math.random() * 20);
+        const random = Math.floor(Math.random() * 5);
         // If react.strictmode in main.jsx is not enabled the proper bg url might not work because url.backdrop will show up as undefined
-        const path = url.backdrop + data?.results[8]?.backdrop_path;
+        const path = url.backdrop + data?.results[random]?.backdrop_path;
         setBg(path);
     }, [url?.backdrop, data?.results])
 
@@ -28,6 +28,12 @@ const HeroBanner = () => {
             setInput("");
         }
     }
+
+    const toHoursAndMinutes = (totalMinutes) => {
+        const hours = Math.floor(totalMinutes / 60);
+        const minutes = totalMinutes % 60;
+        return `${hours}h${minutes > 0 ? ` ${minutes}m` : ""}`;
+    };
 
     return (
         <div className='heroBanner'>

@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import CircleRating from '../CircleRating/CircleRating';
 import dayjs from 'dayjs';
 
-const Carousel = ({ data, loading }) => {
+const Carousel = ({ data, loading, mediaType }) => {
     const { url } = useSelector((state) => state.home);
     const carouselContainer = useRef();
     const navigate = useNavigate();
@@ -36,7 +36,7 @@ const Carousel = ({ data, loading }) => {
                         {data?.results?.map((item, i) => {
                             const path = item.poster_path ? url.poster + item.poster_path : noPoster;
                             return (
-                                <div key={i} className="carousel-item" onClick={() => navigate(`/${item.media_type}/${item.id}`)}>
+                                <div key={i} className="carousel-item" onClick={() => navigate(`/${item.media_type || mediaType}/${item.id}`)}>
                                     <div className="backdrop-img">
                                         <Img src={path} />
                                         <CircleRating rating={(item.vote_average).toFixed(1)} />

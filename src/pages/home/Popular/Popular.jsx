@@ -21,7 +21,8 @@ const Popular = () => {
                     <span>What's Popular ?</span>
                     <SwitchTabs data={options} onTabChange={onTabChange} current="Movies" />
                 </div>
-                <Carousel data={data} loading={loading} />
+                {/* In popular section of API we don't get the mediaType so have to manually send the mediatype */}
+                <Carousel data={data} loading={loading} mediaType={endpoint} />
             </Container>
         </div>
     )
