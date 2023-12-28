@@ -37,11 +37,11 @@
 
     .opacity-layer{
         z-index: -1;
-        height: 250px;
+        height: 330px;
         width: 100%;
         background: linear-gradient(180deg, rgba(4,21,45,0) 0%, #04152d 79.17%);
         position: absolute;
-        bottom: 300px;
+        bottom: 390px;
         left: 0;
 
         @include md{
