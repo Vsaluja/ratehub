@@ -1,9 +1,10 @@
 .box{
-    margin-bottom: 20px;
+    margin-bottom: 80px;
     .container{
         .box-items{
             display: flex;
             justify-content: space-between;
+            gap: 20px;
             align-items: center;
             span{
                 color: white;

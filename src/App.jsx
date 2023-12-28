@@ -35,7 +35,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/details' element={<Details />} />
+        <Route path='/:mediaType/:id' element={<Details />} />
         <Route path='/explore/:mediaType' element={<Explore />}></Route>
         <Route path='/search/:query' element={<Search />}></Route>
       </Routes>

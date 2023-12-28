@@ -6,8 +6,7 @@
     display: flex;
     align-items: center;
     @include md{
-        height: 700px;
-        position: unset;
+        // height: 700px;
        }
 
     .backdrop{
@@ -66,7 +65,7 @@
         .search{
             width: 100%;
             display: flex;
-            max-width: 70%;
+            max-width: 100%;
 
             @include md{
                 max-width: 100%;
@@ -78,11 +77,11 @@
                 font-size: 16px;
                 border: none;
                 outline: none;
-                padding: 5px;
+                padding: 5px 10px;
                 border-radius: 50px 0px 0px 50px;
                 font-weight: 300;  
                 @include md{
-                    padding: 10px;
+                    padding: 10px 20px;
                     font-size: 20px;
                 }
             }

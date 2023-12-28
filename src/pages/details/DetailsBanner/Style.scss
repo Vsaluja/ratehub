@@ -1,0 +1,130 @@
+@import '../../../mixins.scss';
+
+.detailsBanner{
+    margin: 100px 0px;
+    .backdrop{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        opacity: 0.1;
+
+        .lazy-load-image-background{
+            height: 100%;
+            width: 100%;
+            img{
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+
+    }
+
+    .opacity-layer{
+        z-index: -1;
+        height: 220px;
+        width: 100%;
+        background: linear-gradient(180deg, rgba(4,21,45,0) 0%, #04152d 79.17%);
+        position: absolute;
+        bottom: 0px;
+        left: 0;
+    }
+
+    .container{
+        display: flex;
+        gap: 50px;
+        flex-direction: column;
+        @include md{
+            flex-direction: row;
+        }
+        .left{
+            flex-shrink: 0;
+            display: flex;
+            justify-content: center;
+            padding: 0 10px;
+            @include md{
+                justify-content: flex-end;
+            }
+            .lazy-load-image-background{
+                max-width: 400px;
+                img{
+                    width: 100%;
+                    border-radius: 20px;
+                }
+            }
+
+        }
+
+
+        .right{
+            padding: 10px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            font-family: sans-serif;
+            flex-shrink: 1;
+            .title{
+                font-size: 40px;
+            }
+
+            .subtitle{
+                font-size: 20px;
+                font-style: italic;
+                color: #7d7d7d;
+            }
+
+            .icons{
+                margin: 10px 0px;
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                .circleRating{
+                    width: 60px;
+                    background-color: var(--black);
+                    .CircularProgressbar{
+                        .CircularProgressbar-text{
+                            fill: white;
+                        }
+                    }
+                }
+                .play{
+                    font-size: 60px;
+                    color: rgb(229, 0, 72);
+                    cursor: pointer;
+                }
+                
+                span{
+                    font-size: 18px;
+                    cursor: pointer;
+                    &:hover{
+                        color: var(--pink);
+                        transition: 0.4s;
+
+                    }
+                }
+            }
+
+            .overview{
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+                span{
+                    font-size: 30px;
+                }
+                p{
+                    max-width: 600px;
+                    font-size: 17px;
+                    line-height: 30px;
+                }
+            }
+
+        }
+    }
+
+}
