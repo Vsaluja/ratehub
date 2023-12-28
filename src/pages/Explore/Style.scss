@@ -1,0 +1,20 @@
+.explore{
+    margin-top: 150px;
+    .container{
+
+        h3{
+            color: white;
+            margin: 20px;
+        }
+
+        .items{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            .carousel-item{
+                width: 100%;
+                max-width: 200px;
+            }
+        }   
+    }
+}

@@ -1,0 +1,106 @@
+@import "../../mixins.scss";
+
+.carousel{
+    padding: 5px;
+    width: 100%;
+    .carousel-items-container{
+        overflow: hidden;
+        margin-left: -20px;
+        margin-right: -20px;
+        .arrows{
+            display: flex;
+            width: 100%;
+            position: relative;
+            z-index: 2;
+
+            .arrow{
+                font-size: 40px;
+                color: rgb(64, 64, 64);
+                font-weight: bold;
+                position: absolute;
+                cursor: pointer;
+                display: none;
+                transform: translateY(150px);
+                @include md{
+                    display: block;
+                }
+            }
+
+            .left{
+                left: 10px;
+            }
+
+            .right{
+                right: 20px;
+            }
+
+        }
+        .carousel-items{
+            display: flex;
+            align-items: center;
+            overflow-y: hidden;
+
+            
+            @include md{
+                overflow-x: hidden;
+            }
+            gap: 20px;
+            position: relative;
+            
+
+            .carousel-item{
+                min-width: 200px;
+                flex-shrink: 1;
+                @include md{
+                    width: 100%;
+                    // min-width: calc(20% - 16px);
+                    min-width: 240px;
+                }
+                // text-align: center;
+                padding: 5px;
+                cursor: pointer;
+                
+                
+                .backdrop-img{
+                    height: 85%;
+                    width: 100%;
+                    border-radius: 20px;
+                    position: relative;
+                    margin-bottom: 40px;
+                    aspect-ratio: 1/1.5;
+                    .circleRating{
+                        position: absolute;
+                        width: 50px;
+                        bottom: -20px;
+                        left: 10px;
+                    }
+                    .lazy-load-image-background{
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 20px;
+                        overflow: hidden;
+                        img{
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                            object-position: center;
+                        }
+
+                    }
+                }
+
+                .title{
+                    font-size: 20px;
+                    color: white;
+                    @include ellipsis(1);
+                    margin: 10px 0;
+                }
+
+                .date{
+                    color: rgb(89, 89, 89);
+                }
+            }
+        }
+
+    }
+}

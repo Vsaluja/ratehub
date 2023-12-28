@@ -1,0 +1,105 @@
+@import "../../../mixins.scss";
+
+.heroBanner{
+    width: 100%;
+    height: 450px;
+    display: flex;
+    align-items: center;
+    @include md{
+        height: 700px;
+        position: unset;
+       }
+
+    .backdrop{
+        width: 100%;
+        height: 60%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0.5;
+        z-index: -1;
+        overflow: hidden;
+        @include md{
+            height: 100%; 
+        }
+        
+        .lazy-load-image-background{
+            height: 100%;
+            width: 100%;
+            img{
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+    }
+
+    .opacity-layer{
+        z-index: -1;
+        height: 250px;
+        width: 100%;
+        background: linear-gradient(180deg, rgba(4,21,45,0) 0%, #04152d 79.17%);
+        position: absolute;
+        bottom: 300px;
+        left: 0;
+
+        @include md{
+            bottom: 0;
+        }
+    }
+
+    .heroContent{
+        color: white;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        width: 100%;
+        max-width: 700px;
+        margin: 0 auto;
+        gap: 10px;
+
+        h3{
+            font-weight: bold;
+            text-align: center;
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        .search{
+            width: 100%;
+            display: flex;
+            input{
+                width: 100%;
+                max-width: 680px;
+                font-size: 18px;
+                border: none;
+                outline: none;
+                padding: 10px;
+                border-radius: 50px 0px 0px 50px;
+                font-weight: bold;    
+                @include md{
+                    padding: 15px;
+                }
+            }
+            button{
+                border: none;
+                outline: none;
+                padding: 10px;
+                width: 100%;
+                max-width: 100px;
+                font-size: 20px;
+                padding: 10px;
+                background: var(--gradient);
+                color: white;
+                border-radius: 0px 50px 50px 0px;
+                font-weight: bold;
+                @include md{
+                    max-width: 120px;
+                }
+            }
+        }
+    }
+
+}

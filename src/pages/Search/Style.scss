@@ -1,0 +1,20 @@
+.searchSection{
+    margin: 100px 0px;
+    .container{
+
+        h3{
+            color: white;
+
+            margin: 20px 0;
+        }
+
+        .items{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            .carousel-item{
+                max-width: 250px;
+            }
+        }
+    }
+}
