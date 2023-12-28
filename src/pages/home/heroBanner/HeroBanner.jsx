@@ -22,7 +22,7 @@ const HeroBanner = () => {
     }, [url?.backdrop, data?.results])
 
     const onSearch = (e) => {
-        if (e.key === "Enter") {
+        if (e.key === "Enter" || e.onClick) {
             window.scrollTo(0, 0);
             navigate(`/search/${input}`);
             setInput("");
@@ -53,7 +53,11 @@ const HeroBanner = () => {
                             onChange={(e) => setInput(e.target.value)}
                             onKeyDown={(e) => onSearch(e)}
                         />
-                        <button>Search</button>
+                        <button onClick={() => {
+                            window.scrollTo(0, 0);
+                            navigate(`/search/${input}`);
+                            setInput("");
+                        }}>Search</button>
                     </div>
                 </div>
             </Container>
