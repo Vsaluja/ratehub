@@ -3,6 +3,7 @@
 .carousel {
     width: 100%;
     margin-bottom: 100px;
+    min-height: 200px;
 
     .arrows {
         display: flex;
@@ -37,7 +38,6 @@
     .carousel-container {
         overflow: hidden;
         margin-right: -20px;
-
 
     }
 
