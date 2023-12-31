@@ -1,8 +1,9 @@
 @import '../../../mixins.scss';
 
-.detailsBanner{
+.detailsBanner {
     margin: 100px 0px;
-    .backdrop{
+
+    .backdrop {
         position: absolute;
         top: 0;
         left: 0;
@@ -11,10 +12,11 @@
         z-index: -1;
         opacity: 0.1;
 
-        .lazy-load-image-background{
+        .lazy-load-image-background {
             height: 100%;
             width: 100%;
-            img{
+
+            img {
                 height: 100%;
                 width: 100%;
                 object-fit: cover;
@@ -24,34 +26,39 @@
 
     }
 
-    .opacity-layer{
+    .opacity-layer {
         z-index: -1;
         height: 220px;
         width: 100%;
-        background: linear-gradient(180deg, rgba(4,21,45,0) 0%, #04152d 79.17%);
+        background: linear-gradient(180deg, rgba(4, 21, 45, 0) 0%, #04152d 79.17%);
         position: absolute;
         bottom: 0px;
         left: 0;
     }
 
-    .container{
+    .container {
         display: flex;
         gap: 50px;
         flex-direction: column;
-        @include md{
+
+        @include md {
             flex-direction: row;
         }
-        .left{
+
+        .left {
             flex-shrink: 0;
             display: flex;
             justify-content: center;
             padding: 0 10px;
-            @include md{
+
+            @include md {
                 justify-content: flex-end;
             }
-            .lazy-load-image-background{
+
+            .lazy-load-image-background {
                 max-width: 400px;
-                img{
+
+                img {
                     width: 100%;
                     border-radius: 20px;
                 }
@@ -60,7 +67,7 @@
         }
 
 
-        .right{
+        .right {
             padding: 10px;
             color: white;
             display: flex;
@@ -68,85 +75,92 @@
             gap: 10px;
             font-family: sans-serif;
             flex-shrink: 1;
-            .title{
+
+            .title {
                 font-size: 40px;
             }
 
-            .subtitle{
+            .subtitle {
                 font-size: 20px;
                 font-style: italic;
                 color: #7d7d7d;
             }
 
-            .icons{
+            .icons {
                 margin: 10px 0px;
                 display: flex;
                 align-items: center;
                 gap: 20px;
-                .circleRating{
+
+                .circleRating {
                     width: 60px;
                     background-color: var(--black);
-                    .CircularProgressbar{
-                        .CircularProgressbar-text{
+
+                    .CircularProgressbar {
+                        .CircularProgressbar-text {
                             fill: white;
                         }
                     }
                 }
-                .btn{
+
+                .btn {
                     display: flex;
                     align-items: center;
-                    &:hover{
+
+                    &:hover {
                         color: var(--pink);
                         transition: 0.4s;
 
                     }
                 }
-                .play{
-                    font-size: 60px;
+
+                .play {
+                    width: 90px;
                     color: rgb(229, 0, 72);
                     cursor: pointer;
                 }
-                
-                span{
+
+                span {
                     font-size: 18px;
                     cursor: pointer;
-                    
+
                 }
             }
 
-            .overview{
+            .overview {
                 display: flex;
                 flex-direction: column;
                 gap: 10px;
 
-                span{
+                span {
                     font-size: 30px;
                 }
-                p{
+
+                p {
                     max-width: 600px;
                     font-size: 17px;
                     line-height: 30px;
                 }
             }
 
-            .info{
+            .info {
                 margin-top: 20px;
                 padding-bottom: 20px;
                 border-bottom: 0.1px solid rgb(81, 81, 81);
                 display: flex;
 
-                .info-item{
+                .info-item {
                     display: flex;
                     gap: 10px;
                     margin-right: 10px;
                     flex-flow: row wrap;
-                    
-                    .item{
+
+                    .item {
                         font-weight: bold;
                         font-size: 16px;
                     }
-                    
-                    .item-text{
+
+                    .item-text {
                         color: #7d7d7d;
                         font-size: 16px;
                         font-weight: 600;

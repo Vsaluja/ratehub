@@ -3,42 +3,43 @@ import './Style.scss';
 import Container from '../../../components/Container/Container';
 import VideoPopup from '../../../components/videoPopup/VideoPopup';
 import Img from '../../../components/Img/Img';
+import Arrow from '../../../components/Arrow/Arrow';
+import playBtn from '../../../assets/playBtn.png';
+
 const Videos = ({ videos }) => {
 
     const carouselContainer = useRef();
 
-    const navigation = (dir) => {
-        const container = carouselContainer.current;
-        // 240px width + 20px gap
-        const scrollAmount = dir === "left" ? container.scrollLeft - (260 * 5) : container.scrollLeft + (260 * 5);
-
-        container.scrollTo({
-            left: scrollAmount,
-            behavior: "smooth"
-        })
-
-    }
 
     const [show, setShow] = useState(false);
     const [videoId, setVideoId] = useState(null);
+
+
+    const [conRef, setConRef] = useState();
+
+    useEffect(() => {
+        const container = carouselContainer.current;
+        setConRef(container);
+    }, [videos])
 
 
     return (
         <div className='videos'>
             {videos?.results?.length > 0 && (
                 <Container>
-                    <h2>Videos</h2>
+                    <div className="left">
+
+                        <h2>Videos</h2>
+                        {videos?.results?.length >= 6 && (
+                            // width of carousel item and gap of carousel items in scss
+                            <Arrow width={240} gap={20} noOfItems={5} containerRef={carouselContainer.current} />
+
+                        )}
+                    </div>
                     <div className="carousel">
 
-                        {videos?.results?.length >= 5 && (
-
-                            <div className="arrows">
-                                <i className="arrow left ri-arrow-left-circle-line" onClick={() => navigation("left")}></i>
-                                <i className="arrow right ri-arrow-right-circle-line" onClick={() => navigation("right")}></i>
-                            </div>
-                        )}
-                        <div className="carousel-container" ref={carouselContainer}>
-                            <div className="carousel-items">
+                        <div className="carousel-container">
+                            <div className="carousel-items" ref={carouselContainer}>
                                 {videos?.results?.map((item, i) => {
                                     return (
                                         <div key={i} className="carousel-item">
@@ -47,7 +48,9 @@ const Videos = ({ videos }) => {
                                                 setVideoId(item.key);
                                             }}>
                                                 <Img src={`https://img.youtube.com/vi/${item.key}/mqdefault.jpg`} />
+                                                <img className="playBtn" src={playBtn} />
                                             </div>
+                                            <div className="name">{item.name}</div>
                                         </div>
                                     )
                                 })}

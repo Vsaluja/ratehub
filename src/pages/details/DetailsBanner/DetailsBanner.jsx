@@ -9,6 +9,7 @@ import useFetch from '../../../Hooks/useFetch';
 import { useParams } from 'react-router-dom';
 import VideoPopup from '../../../components/videoPopup/VideoPopup';
 import noPoster from '../../../assets/no-poster.png'
+import playBtn from '../../../assets/playBtn.png';
 
 const DetailsBanner = ({ video, crew }) => {
     const { mediaType, id } = useParams();
@@ -58,7 +59,7 @@ const DetailsBanner = ({ video, crew }) => {
                             setShow(true)
                             setVideoId(video.key);
                         }}>
-                            <i class="play ri-play-circle-fill"></i>
+                            <img className='play' src={playBtn} alt="" />
                             <span>Watch Trailer</span>
                         </div>
                     </div>

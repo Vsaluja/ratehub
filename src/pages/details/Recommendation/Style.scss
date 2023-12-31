@@ -1,7 +1,19 @@
-.recommendation{
-    .container{
-        h2{
-            color: white;
+.recommendation {
+    .container {
+        .left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+
+            h2 {
+                color: white;
+                font-weight: bold;
+                font-size: 25px;
+            }
+
+            .arrow {
+                color: var(--pink);
+            }
         }
     }
 }

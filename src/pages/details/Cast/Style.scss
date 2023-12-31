@@ -1,59 +1,76 @@
 @import '../../../mixins.scss';
-.cast{
+
+.cast {
     margin: 50px 0;
-    .container{
-        h2{
-            color: white;
-            margin-bottom: 20px;
+
+    .container {
+        .left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+
+            h2 {
+                color: white;
+                font-weight: bold;
+                font-size: 25px;
+            }
+
+            .arrow {
+                color: var(--pink);
+            }
         }
 
-        .carousel{
-            
-            .arrows{
+        .carousel {
+            // margin-top: 10px;
+
+            .arrows {
                 display: flex;
                 width: 100%;
                 position: relative;
                 z-index: 2;
-    
-                .arrow{
+
+                .arrow {
                     font-size: 40px;
-                    // color: rgb(64, 64, 64);
-                    color: rgb(229, 10, 138);
+                    color: rgb(64, 64, 64);
+                    // color: rgb(229, 10, 138);
                     font-weight: bold;
                     position: absolute;
                     cursor: pointer;
                     display: none;
-                    transform: translateY(50px);
-                    @include md{
+                    transform: translateY(-50px);
+
+                    @include md {
                         display: block;
                     }
                 }
-    
-                .left{
-                    left: -30px;
+
+                .left {
+                    left: 70px;
                 }
-    
-                .right{
-                    right: -30px;
+
+                .right {
+                    left: 110px;
                 }
-    
+
             }
 
-            .carousel-container{
+            .carousel-container {
                 overflow-y: hidden;
                 margin-right: -20px;
-                margin-left: -20px;
-                @include md{
+                // margin-left: -20px;
+
+                @include md {
                     margin-right: 0;
                     overflow: hidden;
                 }
-                .carousel-items{
+
+                .carousel-items {
                     display: flex;
                     gap: 20px;
-    
-                    .carousel-item{
+
+                    .carousel-item {
                         margin: 0;
-                        // aspect-ratio: 1/1.5;
+                        aspect-ratio: 1/1;
                         display: flex;
                         flex-direction: column;
                         align-items: center;
@@ -61,38 +78,44 @@
                         width: 100%;
                         max-width: 180px;
                         cursor: unset;
-    
-                        @include md{
+
+                        &:hover {
+                            opacity: 1;
+                        }
+
+                        @include md {
                             max-width: 200px;
                         }
-    
-                        .profile{
+
+                        .profile {
                             width: 150px;
                             height: 150px;
                             border-radius: 50%;
                             overflow: hidden;
-                            
-                            .lazy-load-image-background{
+
+                            .lazy-load-image-background {
                                 width: 100%;
-                                img{
+
+                                img {
                                     width: 100%;
                                     object-fit: cover;
                                     object-position: center;
                                 }
                             }
                         }
-    
-                        .originalName{
+
+                        .originalName {
                             color: white;
                             font-weight: bold;
-                            margin-top: 20px ;
+                            margin-top: 20px;
                         }
-    
-                        .charName{
+
+                        .charName {
                             margin-top: 10px;
                             color: gray;
+                            text-align: center;
                         }
-    
+
                     }
                 }
             }

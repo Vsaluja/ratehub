@@ -1,0 +1,27 @@
+@import '../../mixins.scss';
+
+.arrows {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    display: none;
+
+    @include md {
+        display: flex;
+    }
+
+    .arrow {
+        font-size: 35px;
+        color: rgb(21, 21, 21);
+        font-weight: bold;
+        cursor: pointer;
+
+        &:hover {
+            opacity: 0.7;
+            transition: 0.4s;
+        }
+
+
+    }
+}

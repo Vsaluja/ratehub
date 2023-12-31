@@ -1,97 +1,121 @@
 @import '../../../mixins.scss';
-.videos{
+
+.videos {
     margin: 50px 0;
-    .container{
-        h2{
-            color: white;
-            margin-bottom: 20px;
+
+    .container {
+        .left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+
+            h2 {
+                color: white;
+                font-weight: bold;
+                font-size: 25px;
+            }
+
+            .arrow {
+                color: var(--pink);
+            }
         }
 
-        .carousel{
-            
-            .arrows{
+        .carousel {
+            margin-top: 20px;
+
+            .arrows {
                 display: flex;
                 width: 100%;
                 position: relative;
                 z-index: 2;
-    
-                .arrow{
+
+                .arrow {
                     font-size: 40px;
                     // color: rgb(64, 64, 64);
-                    color: rgb(229, 10, 138);
+                    color: rgb(39, 39, 39);
+                    // color: rgb(229, 10, 138);
                     font-weight: bold;
                     position: absolute;
                     cursor: pointer;
                     display: none;
-                    transform: translateY(50px);
-                    @include md{
+                    transform: translateY(-50px);
+
+                    @include md {
                         display: block;
                     }
                 }
-    
-                .left{
-                    left: -30px;
+
+                .left {
+                    left: 100px;
                 }
-    
-                .right{
-                    right: -30px;
+
+                .right {
+                    left: 140px;
                 }
-    
+
             }
 
-            .carousel-container{
+            .carousel-container {
                 overflow-y: hidden;
                 margin-right: -20px;
-                margin-left: -20px;
-                @include md{
+                // margin-left: -20px;
+
+                @include md {
                     margin-right: 0;
                     overflow: hidden;
                 }
-                .carousel-items{
+
+                .carousel-items {
                     display: flex;
                     gap: 20px;
-    
-                    .carousel-item{
+
+                    .carousel-item {
                         margin: 0;
-                        // aspect-ratio: 1/1.1;
+                        aspect-ratio: 1/0.5;
                         display: flex;
                         flex-direction: column;
                         align-items: center;
                         justify-content: center;
                         width: 100%;
                         max-width: 180px;
-    
-                        @include md{
+
+                        @include md {
                             max-width: 240px;
                         }
-    
-                        .videos{
+
+                        .videos {
                             width: 100%;
                             margin: 0;
-                            
-                            
-                            .lazy-load-image-background{
+                            position: relative;
+
+                            .lazy-load-image-background {
                                 width: 100%;
-                                img{
+
+                                img {
                                     width: 100%;
+                                    height: 200px;
                                     object-fit: cover;
                                     object-position: center;
                                     border-radius: 5px;
                                 }
                             }
+
+                            .playBtn {
+                                position: absolute;
+                                bottom: 0px;
+                                left: 0px;
+                                width: 50px;
+                                height: 50px;
+                            }
                         }
-    
-                        .originalName{
+
+                        .name {
                             color: white;
-                            font-weight: bold;
-                            margin-top: 20px ;
-                        }
-    
-                        .charName{
+                            text-align: center;
                             margin-top: 10px;
-                            color: gray;
+                            @include ellipsis(1);
                         }
-    
+
                     }
                 }
             }

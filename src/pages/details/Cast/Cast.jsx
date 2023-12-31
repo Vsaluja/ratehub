@@ -1,9 +1,10 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import './Style.scss';
 import Container from '../../../components/Container/Container';
 import Img from '../../../components/Img/Img';
 import noAvatar from '../../../assets/avatar.png';
 import { useSelector } from 'react-redux';
+import Arrow from '../../../components/Arrow/Arrow';
 
 const Cast = ({ cast }) => {
 
@@ -11,17 +12,13 @@ const Cast = ({ cast }) => {
 
     const carouselContainer = useRef();
 
-    const navigation = (dir) => {
+    const [conRef, setConRef] = useState();
+
+    useEffect(() => {
         const container = carouselContainer.current;
-        // 200px width + 20px gap
-        const scrollAmount = dir === "left" ? container.scrollLeft - (220 * 6) : container.scrollLeft + (220 * 6);
+        setConRef(container);
+    }, [cast])
 
-        container.scrollTo({
-            left: scrollAmount,
-            behavior: "smooth"
-        })
-
-    }
 
     return (
 
@@ -30,18 +27,19 @@ const Cast = ({ cast }) => {
 
 
                 <Container>
-                    <h2>Cast</h2>
+                    <div className="left">
+
+                        <h2>Cast</h2>
+                        {cast?.length >= 6 && (
+                            // width of carousel item and gap of carousel items in scss
+                            <Arrow width={200} gap={20} noOfItems={6} containerRef={conRef} />
+
+                        )}
+                    </div>
                     <div className="carousel">
 
-                        {cast?.length >= 6 && (
-
-                            <div className="arrows">
-                                <i className="arrow left ri-arrow-left-circle-line" onClick={() => navigation("left")}></i>
-                                <i className="arrow right ri-arrow-right-circle-line" onClick={() => navigation("right")}></i>
-                            </div>
-                        )}
-                        <div className="carousel-container" ref={carouselContainer}>
-                            <div className="carousel-items">
+                        <div className="carousel-container" >
+                            <div className="carousel-items" ref={carouselContainer}>
                                 {cast?.map((item, i) => {
                                     const path = item.profile_path ? url.profile + item.profile_path : noAvatar;
                                     return (

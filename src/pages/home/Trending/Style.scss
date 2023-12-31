@@ -6,10 +6,16 @@
             justify-content: space-between;
             gap: 20px;
             align-items: center;
-            span{
-                color: white;
-                font-weight: bold;
-                font-size: 20px;
+            .left{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 20px;
+                span{
+                    color: white;
+                    font-weight: bold;
+                    font-size: 25px;
+                }
             }
         }
     }

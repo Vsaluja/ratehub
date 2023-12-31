@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import './Style.scss';
 import Container from '../Container/Container';
 import Img from '../Img/Img';
@@ -8,29 +8,30 @@ import { useNavigate } from 'react-router-dom';
 import CircleRating from '../CircleRating/CircleRating';
 import dayjs from 'dayjs';
 
-const Carousel = ({ data, loading, mediaType }) => {
+const Carousel = ({ data, loading, mediaType, containerRef }) => {
     const { url } = useSelector((state) => state.home);
     const carouselContainer = useRef();
     const navigate = useNavigate();
 
     const navigation = (dir) => {
-        const container = carouselContainer.current;
         // 240px is the width of each carousel-item + there is gap of 20px
-        const scrollAmount = dir === "left" ? container.scrollLeft - (260 * 5) : container.scrollLeft + (260 * 5);
+        // const scrollAmount = dir === "left" ? container.scrollLeft - (260 * 5) : container.scrollLeft + (260 * 5);
+        // container.scrollTo({
+        //     left: scrollAmount,
+        //     behavior: "smooth"
+        // })
 
-        container.scrollTo({
-            left: scrollAmount,
-            behavior: "smooth"
-        })
     }
+
+    useEffect(() => {
+        const container = carouselContainer.current;
+        containerRef(container);
+    }, [loading, data])
+
 
     return (
         <div className='carousel'>
-            <div className="carousel-items-container">
-                <div className="arrows">
-                    <i className="arrow left ri-arrow-left-circle-line" onClick={() => navigation("left")}></i>
-                    <i className="arrow right ri-arrow-right-circle-line" onClick={() => navigation("right")}></i>
-                </div>
+            <div className="carousel-container">
                 {!loading ? (
                     <div className="carousel-items" ref={carouselContainer}>
                         {data?.results?.map((item, i) => {
