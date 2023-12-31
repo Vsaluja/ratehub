@@ -1,24 +1,29 @@
 @import '../../mixins.scss';
-.switch{
+
+.switch {
     display: flex;
     background-color: white;
     padding: 5px;
     border-radius: 50px;
     width: 100%;
     max-width: 150px;
-    @include md{
+
+    @include md {
         max-width: 200px;
     }
-    gap: 10px;  
-    .tab{
+
+    gap: 10px;
+
+    .tab {
         text-align: center;
         border-radius: 50px;
-        width: 50%;
+        flex: 1;
         padding: 3px 10px;
         font-weight: bold;
         cursor: pointer;
     }
-    .active{
+
+    .active {
         background: var(--gradient);
         color: white;
         transition: 0.4s;

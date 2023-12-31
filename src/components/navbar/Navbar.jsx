@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './style.scss'
 import Container from '../Container/Container'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import logo from '../../assets/moviesLogo2.png'
+import logo from '../../assets/rateIcon.png'
 
 
 const Navbar = () => {
@@ -52,6 +52,7 @@ const Navbar = () => {
             <Container>
                 <Link className='logo' to="/">
                     <img src={logo} alt="" />
+                    <h2>Rate<span className='hub'>Hub</span></h2>
                 </Link>
 
                 <div className={`navItems ${mobile ? "active" : ""}`}>
