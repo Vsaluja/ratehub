@@ -5,6 +5,9 @@ import { fetchDataFromApi } from '../../API/API';
 import { useParams } from 'react-router-dom';
 import MovieCard from '../../components/MovieCard/MovieCard';
 import Container from '../../components/Container/Container';
+import Spinner from '../../components/Spinner/Spinner';
+import noResults from '../../assets/no-results.png';
+
 const Search = () => {
     const { query } = useParams();
     const [data, setData] = useState();
@@ -41,24 +44,33 @@ const Search = () => {
         <div className='searchSection'>
             <Container>
 
-                <h3>{`Search results for "${query}"`}</h3>
+
 
                 {data?.results?.length > 0 ?
                     (
-                        <InfiniteScroll
-                            className='items'
-                            dataLength={data?.results?.length || []}
-                            next={fetchNextData}
-                            hasMore={pageNum <= data?.total_pages}
-                        >
-                            {data?.results?.map((item) => {
-                                return <MovieCard key={item.id} item={item} />
-                            })}
+                        <>
+                            <h3>{`Search results for "${query}"`}</h3>
+                            <InfiniteScroll
+                                className='items'
+                                dataLength={data?.results?.length || []}
+                                next={fetchNextData}
+                                hasMore={pageNum <= data?.total_pages}
+                            >
+                                {data?.results?.map((item) => {
+                                    return <MovieCard key={item.id} item={item} />
+                                })}
 
-                        </InfiniteScroll>
+                            </InfiniteScroll>
+                        </>
                     )
                     :
-                    (<div>Loading...</div>)}
+                    (data?.results?.length == 0 ?
+                        (<div className='noResults'>
+                            <img src={noResults} alt="" />
+                            <h2>No results found</h2>
+                        </div>)
+                        :
+                        (<Spinner />))}
             </Container>
         </div>
     )

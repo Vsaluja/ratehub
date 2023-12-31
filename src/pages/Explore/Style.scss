@@ -1,16 +1,22 @@
+@import '../../mixins.scss';
+
 .explore{
     margin-top: 150px;
     .container{
-
+        padding: 0;
+        @include md{
+            padding: 0 20px;
+        }
         h3{
             color: white;
             margin: 20px;
         }
-
+        
         .items{
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
+
             .carousel-item{
                 width: 100%;
                 max-width: 180px;

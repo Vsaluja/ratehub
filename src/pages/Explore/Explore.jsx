@@ -6,6 +6,7 @@ import { fetchDataFromApi } from '../../API/API';
 import Container from '../../components/Container/Container';
 import MovieCard from '../../components/MovieCard/MovieCard';
 import InfiniteScroll from 'react-infinite-scroll-component';
+import Spinner from '../../components/Spinner/Spinner';
 
 const Explore = () => {
 
@@ -52,22 +53,27 @@ const Explore = () => {
 
 
             <Container>
-                <h3>{`Explore ${mediaType === "movie" ? "Movies" : "TV Shows"}`}</h3>
                 {data?.results?.length > 0 ?
+
                     (
-                        <InfiniteScroll
-                            className='items'
-                            dataLength={data?.results?.length || []}
-                            next={fetchNextData}
-                            hasMore={pageNum <= data?.total_pages}
-                        >
-                            {data?.results?.map((item) => {
-                                return <MovieCard key={item.id} item={item} mediaType={mediaType} />
-                            })}
-                        </InfiniteScroll>
+                        <>
+                            <h3>{`Explore ${mediaType === "movie" ? "Movies" : "TV Shows"}`}</h3>
+                            <InfiniteScroll
+                                className='items'
+                                dataLength={data?.results?.length || []}
+                                next={fetchNextData}
+                                hasMore={pageNum <= data?.total_pages}
+                                loader={<Spinner />}
+                            >
+                                {data?.results?.map((item) => {
+                                    return <MovieCard key={item.id} item={item} mediaType={mediaType} />
+                                })}
+                            </InfiniteScroll>
+                        </>
                     )
                     :
-                    (<div>Loading..</div>)}
+                    (<Spinner />)}
+
             </Container>
         </div>
     )

@@ -1,7 +1,7 @@
+@import '../../mixins.scss';
 .searchSection{
     margin: 100px 0px;
     .container{
-
         h3{
             color: white;
 
@@ -14,6 +14,29 @@
             justify-content: center;
             .carousel-item{
                 max-width: 180px;
+            }
+        }
+
+        .noResults{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            img{
+                width: 250px;
+                @include lg{
+                    width: 350px;
+                }
+                flex-shrink: 0;
+            }
+            h2{
+                color: white;
+                font-size: 14px;
+                @include md{
+                    font-size: 18px;
+                }
+
             }
         }
     }

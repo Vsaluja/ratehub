@@ -8,6 +8,7 @@ import CircleRating from '../../../components/CircleRating/CircleRating';
 import useFetch from '../../../Hooks/useFetch';
 import { useParams } from 'react-router-dom';
 import VideoPopup from '../../../components/videoPopup/VideoPopup';
+import noPoster from '../../../assets/no-poster.png'
 
 const DetailsBanner = ({ video, crew }) => {
     const { mediaType, id } = useParams();
@@ -15,7 +16,7 @@ const DetailsBanner = ({ video, crew }) => {
 
     const { url } = useSelector((state) => state.home);
     const bg = url?.backdrop + data?.backdrop_path;
-    const path = url?.backdrop + data?.poster_path;
+    const path = data?.poster_path ? url?.backdrop + data?.poster_path : noPoster;
 
     const toHoursAndMinutes = (totalMinutes) => {
         const hours = Math.floor(totalMinutes / 60);
