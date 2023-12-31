@@ -3,7 +3,7 @@
 .carousel {
     width: 100%;
     margin-bottom: 100px;
-    min-height: 200px;
+    // min-height: 200px;
 
     .arrows {
         display: flex;
@@ -56,7 +56,6 @@
 
 
         .carousel-item {
-            flex-shrink: 1;
             padding: 5px;
             cursor: pointer;
             aspect-ratio: 1/1.7;
