@@ -11,7 +11,7 @@ import Arrow from '../../../components/Arrow/Arrow';
 const Trending = () => {
     const [endpoint, setEndpoint] = useState("day");
     const options = ["Day", "Week"];
-    const { data, loading } = useFetch(`/trending/all/${endpoint}`)
+    const { data, loading, error } = useFetch(`/trending/all/${endpoint}`)
 
     const onTabChange = (tab) => {
         setEndpoint(tab === "Day" ? "day" : "week");

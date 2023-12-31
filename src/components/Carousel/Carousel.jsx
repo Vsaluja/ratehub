@@ -13,16 +13,6 @@ const Carousel = ({ data, loading, mediaType, containerRef }) => {
     const carouselContainer = useRef();
     const navigate = useNavigate();
 
-    const navigation = (dir) => {
-        // 240px is the width of each carousel-item + there is gap of 20px
-        // const scrollAmount = dir === "left" ? container.scrollLeft - (260 * 5) : container.scrollLeft + (260 * 5);
-        // container.scrollTo({
-        //     left: scrollAmount,
-        //     behavior: "smooth"
-        // })
-
-    }
-
     useEffect(() => {
         const container = carouselContainer.current;
         containerRef(container);
