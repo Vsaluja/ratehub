@@ -4,12 +4,12 @@ import { fetchDataFromApi } from '../API/API';
 const useFetch = (url) => {
     const [data, setData] = useState();
     const [loading, setLoading] = useState();
-    const [error, setError] = useState();
+    const [error, setError] = useState(false);
 
     useEffect(() => {
         setLoading("Loading..");
         setData(null);
-        setError(null);
+        setError(false);
 
 
         fetchDataFromApi(url)
@@ -19,8 +19,8 @@ const useFetch = (url) => {
             })
             .catch((error) => {
                 setLoading(false)
-                setError("Something went wrong")
-                console.log(error);
+                setError(true)
+                // console.log(error);
             })
 
     }, [url])
