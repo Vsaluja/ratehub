@@ -25,12 +25,20 @@
             text-decoration: none;
 
             img {
-                width: 50px;
+                width: 40px;
+
+                @include md {
+                    width: 50px;
+                }
             }
 
             h2 {
                 color: white;
-                font-size: 28px;
+                font-size: 23px;
+
+                @include md {
+                    font-size: 28px;
+                }
             }
 
             span {
@@ -76,7 +84,7 @@
                 position: absolute;
                 flex-direction: column;
                 text-align: center;
-                bottom: -8.3rem;
+                bottom: -9.3rem;
                 width: 100%;
                 padding: 2rem 0;
                 left: 0;
@@ -88,7 +96,7 @@
 
         .search {
             position: absolute;
-            bottom: -3rem;
+            bottom: -4.2rem;
             padding: 0 1rem;
             left: 0;
             background-color: white;

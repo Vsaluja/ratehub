@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom'
 import useFetch from '../../Hooks/useFetch'
 import DetailsBanner from './DetailsBanner/DetailsBanner';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Similar from './Similar/Similar';
 import Container from '../../components/Container/Container';
 import Recommendation from './Recommendation/Recommendation';
@@ -16,18 +16,31 @@ const Details = () => {
     const { data, loading, error } = useFetch(`/${mediaType}/${id}/videos`);
     const { data: credits, loading: creditsLoading, error: creditsError } = useFetch(`/${mediaType}/${id}/credits`);
 
+    const [trailer, setTrailer] = useState();
+
+
+    const findTrailer = () => {
+        let foundTrailer = data?.results?.find((item) => {
+            return item.type === "Trailer";
+        })
+
+        setTrailer(foundTrailer);
+
+    }
+
 
     useEffect(() => {
         console.log("load", loading);
         console.log(error);
         console.log(creditsError);
+        findTrailer();
     }, [data, credits])
 
     return (
         <div className='details'>
             {error || creditsError ? (<div>Some unknown error occurred</div>) :
                 (<>
-                    <DetailsBanner video={data?.results[0]} crew={credits?.crew} />
+                    <DetailsBanner video={trailer || data?.results[0]} crew={credits?.crew} />
                     <Cast cast={credits?.cast} />
                     <Videos videos={data} />
                     <Similar mediaType={mediaType} id={id} />

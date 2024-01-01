@@ -7,6 +7,7 @@ import noPoster from '../../assets/no-poster.png';
 import { useNavigate } from 'react-router-dom';
 import CircleRating from '../CircleRating/CircleRating';
 import dayjs from 'dayjs';
+import Spinner from '../Spinner/Spinner';
 
 const Carousel = ({ data, loading, mediaType, containerRef }) => {
     const { url } = useSelector((state) => state.home);
@@ -27,7 +28,7 @@ const Carousel = ({ data, loading, mediaType, containerRef }) => {
                         {data?.results?.map((item, i) => {
                             const path = item.poster_path ? url.poster + item.poster_path : noPoster;
                             return (
-                                <div key={i} className="carousel-item" onClick={() => navigate(`/${item.media_type || mediaType}/${item.id}`)}>
+                                <div key={i} className="carousel-item" onClick={() => { navigate(`/${item.media_type || mediaType}/${item.id}`); window.scrollTo(0, 0); }}>
                                     <div className="backdrop-img">
                                         <Img src={path} />
                                         <CircleRating rating={(item.vote_average).toFixed(1)} />
@@ -40,7 +41,7 @@ const Carousel = ({ data, loading, mediaType, containerRef }) => {
                     </div>
                 )
                     :
-                    (<div>loading</div>)}
+                    (<Spinner />)}
             </div>
         </div>
     )
