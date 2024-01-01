@@ -71,7 +71,6 @@
 
                     .carousel-item {
                         margin: 0;
-                        // aspect-ratio: 1/0.5;
                         display: flex;
                         flex-direction: column;
                         align-items: center;
@@ -81,6 +80,7 @@
 
                         @include md {
                             max-width: 240px;
+                            aspect-ratio: 1;
                         }
 
                         .videos {

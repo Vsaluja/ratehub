@@ -3,6 +3,7 @@
         @content;
     }
 }
+
 @mixin sm {
     @media only screen and (min-width: 640px) {
         @content;
@@ -16,7 +17,7 @@
 }
 
 @mixin lg {
-    @media only screen and (min-width: 1024px) {
+    @media only screen and (min-width: 1025px) {
         @content;
     }
 }

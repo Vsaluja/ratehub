@@ -7,7 +7,7 @@
     gap: 5px;
     display: none;
 
-    @include md {
+    @include lg {
         display: flex;
     }
 

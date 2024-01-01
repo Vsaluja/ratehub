@@ -26,8 +26,12 @@
     box-sizing: border-box;
 }
 
-::-webkit-scrollbar-thumb{
-    background:#041226
+// ::-webkit-scrollbar-thumb{
+//     background:#041226
+// }
+
+::-webkit-scrollbar:vertical {
+    display: none;
 }
 
 // ::-webkit-scrollbar {
@@ -36,15 +40,17 @@
 //     display: none;
 // }
 
-html{
+html {
     height: 100%;
     width: 100%;
 }
+
 body {
     background-color: var(--black);
     height: 100%;
     width: 100%;
-    #root{
+
+    #root {
         width: 100%;
         min-height: 100%;
         display: flex;
