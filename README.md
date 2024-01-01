@@ -1,4 +1,4 @@
-                                    Overview
+                                                                      Overview
 Ratehub is web app that is inspired from a movie rating platform IMDB. It uses API provided by the movie database and provides an amazing UX/UI experience to the users.
 
 -This web app is built using ReactJS and have used redux toolkit for global state management. I could have used context API for this project but I wanted to enhance my skills by building projects using Redux Toolkit.
