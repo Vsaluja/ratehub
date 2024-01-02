@@ -30,9 +30,6 @@ const Details = () => {
 
 
     useEffect(() => {
-        console.log("load", loading);
-        console.log(error);
-        console.log(creditsError);
         findTrailer();
     }, [data, credits])
 

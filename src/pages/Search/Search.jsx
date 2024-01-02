@@ -35,15 +35,19 @@ const Search = () => {
             })
     }
 
+    let notFound = false;
 
     useEffect(() => {
         fetchInitialData();
-    }, [query])
+        console.log(notFound);
+    }, [query, notFound])
+
+
+
 
     return (
         <div className='searchSection'>
             <Container>
-
 
 
                 {data?.results?.length > 0 ?
@@ -57,6 +61,11 @@ const Search = () => {
                                 hasMore={pageNum <= data?.total_pages}
                             >
                                 {data?.results?.map((item) => {
+
+                                    if (item.media_type === "person") {
+                                        notFound = true;
+                                        return;
+                                    }
                                     return <MovieCard key={item.id} item={item} />
                                 })}
 
@@ -70,7 +79,13 @@ const Search = () => {
                             <h2>No results found</h2>
                         </div>)
                         :
-                        (<Spinner />))}
+                        (<Spinner />)
+                    )
+                }
+                {notFound && (<div className='noResults'>
+                    <img src={noResults} alt="" />
+                    <h2>No results found</h2>
+                </div>)}
             </Container>
         </div>
     )

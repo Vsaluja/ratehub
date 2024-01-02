@@ -36,10 +36,6 @@ const DetailsBanner = ({ video, crew }) => {
     const [show, setShow] = useState(false);
     const [videoId, setVideoId] = useState(null);
 
-    useEffect(() => {
-        console.log("banner", error);
-    }, [data, error])
-
     return (
         <div className='detailsBanner'>
             {error ? (<div>Something went wrong. Please go back {console.log("My error", error)}</div>) :
