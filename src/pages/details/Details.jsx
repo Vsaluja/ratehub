@@ -18,11 +18,19 @@ const Details = () => {
 
     const [trailer, setTrailer] = useState();
 
-
+    let x;
     const findTrailer = () => {
         let foundTrailer = data?.results?.find((item) => {
-            return item.type === "Trailer";
+            console.log("Found");
+            return (item.name === "Official Trailer");
         })
+
+        // This way it will always prefer official trailer 
+        if (!foundTrailer) {
+            foundTrailer = data?.results?.find((item) => {
+                return (item.type === "Trailer");
+            })
+        }
 
         setTrailer(foundTrailer);
 
