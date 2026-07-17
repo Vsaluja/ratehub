@@ -52,7 +52,10 @@ const Navbar = () => {
             <Container>
                 <Link className='logo' to="/">
                     <img src={logo} alt="" />
-                    <h2>Rate<span className='hub'>Hub</span></h2>
+                    {/* <h2>Rate<span className='hub'>Hub</span></h2> */}
+                    <h2 className="brand">
+                        Rate<span>Hub</span>
+                    </h2>
                 </Link>
 
                 <div className={`navItems ${mobile ? "active" : ""}`}>

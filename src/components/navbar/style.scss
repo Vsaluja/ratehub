@@ -32,20 +32,33 @@
                 }
             }
 
-            h2 {
+            // h2 {
+            //     color: white;
+            //     font-size: 23px;
+
+            //     @include md {
+            //         font-size: 28px;
+            //     }
+            // }
+
+            // span {
+            //     // color: crimson;
+            //     padding: 1px 5px;
+            //     border-radius: 7px;
+            //     background-color: crimson;
+            // }
+
+            .brand {
+                font-size: 1.8rem;
+                font-weight: 800;
+                letter-spacing: -0.5px;
                 color: white;
-                font-size: 23px;
 
-                @include md {
-                    font-size: 28px;
+                span {
+                    color: #ff4d6d;
+                    background: transparent;
+                    padding: 0;
                 }
-            }
-
-            span {
-                // color: crimson;
-                padding: 1px 5px;
-                border-radius: 7px;
-                background-color: crimson;
             }
         }
 
